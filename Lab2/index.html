@@ -1,0 +1,95 @@
+
+<html>
+  <head>
+    <title>
+      Site Search Engine Application
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+  </head>
+  <body>
+
+
+    
+    <div class="container">
+      <div class="row">
+        <form class="searchForm">
+          
+          <div class="col-md-3">
+            <label for="inputWhat">Search(what):</label>
+            <select class="form-control" name="inputWhat">
+              <option>Any terms</option>
+              <option>All terms</option>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="inputWhere">Search(where):</label>
+            <select class="form-control" name="inputWhere">
+              <option>Description</option>
+              <option>Name</option>
+              <option>URL</option>
+              <option>Everywhere</option>
+            </select>
+          </div>
+          <div class="col-md-4 searchInput">
+            <input type="text" class=" form-control" name="textToSearch"></input>
+          </div>
+          <div class="col-md-1 searchInput">
+            <button type="button" class="btn btn-default" id="searchStartButton">
+              <span class="glyphicon glyphicon-search"></span>
+            </button>
+          </div>
+        </form>
+      </div>
+      <hr>
+      <div class="row" >
+        <div class="col-md-12" >
+          <span class="textBeforeTable">Search Query: </span><span id="searchQuery" class="textBeforeTable"></span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-12">
+          <span class="textBeforeTable">Search Results: </span><span id="searchResults" class="textBeforeTable"></span>
+        </div>
+      </div>
+      
+    </div>
+    <div class="container">
+      <hr>
+
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>URL</th>
+          </tr>
+        </thead>
+        <tbody id="tbodySearchResults">
+          
+        </tbody>
+      </table>
+      <hr>
+      <div class="row">
+        <span class="textAfterTable">Temp page: </span><span class="textAfterTable" id="tempPage"></span>
+      </div>
+      <div class="row">
+        <button type="button" class="btn btn-default" id="previousPage">Previous</button>
+        <button type="button" class="btn btn-default" id="nextPage">Next</button>
+      </div>
+    </div>
+  
+    <hr>
+    
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+  </body>
+
+</html>
