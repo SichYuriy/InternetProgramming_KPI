@@ -1,0 +1,89 @@
+.legs{
+	font-size:0;
+	display:block;
+	width:100%;
+	height:462px;
+	min-width:865px;
+	background:url("img/top_background.png");
+	text-align:center;
+	position:relative;
+}
+.legs_div{
+	text-align:left;
+	height:100%;
+	max-width:1000px;
+	min-width:865px;
+	width:100%;
+	background:transparent;
+	display:inline-block;
+
+}
+.pinkshoes{
+	height:100%;
+	width:65%;
+	display:inline-block;
+	float:left;
+	background:url("img/pinkshoes.png");
+}
+.shoes_information{
+	padding-left:20px;
+	padding-top:70px;
+	display:inline-block;
+	height:100%;
+	width:30%;
+	min-width:250px;
+	
+}
+.price{
+	width:70px;
+	height:70px;
+	display:block;
+	color:white;
+	line-height:70px;
+	text-align:center;
+	font-family:Arial;
+	font-weight:bold;
+	font-size:13pt;
+	background:#57c5a0;
+}
+.text h1{
+	font-size:30pt;
+	color:black;
+	font-family:Arial;
+	font-style:italic;
+
+}
+.text p{
+	font-size:15pt;
+	color:black;
+	font-family:Arial;
+	font-style:italic;
+
+}
+.top_buttons{
+	display:block;
+
+}
+.top_buttons table td{
+	width:40px;
+	height:40px;
+	background:white;
+	text-align:center;
+	
+	-moz-transition:all .1s linear;
+	-webkit-transition:all .1s linear;
+	-o-transition:all .1s linear;
+	transition:all .1s linear;
+
+}
+.top_buttons table td:hover{
+	
+	cursor:pointer;
+	border-left:4px solid #57c5a0;
+	border-right:4px solid #57c5a0;
+	
+
+}
+.top_buttons table{
+	border-spacing:2px 0;
+}

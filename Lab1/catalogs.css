@@ -1,0 +1,198 @@
+.catalogs{
+	display:block;
+	width:100%;
+	height:1000px;
+	min-width:865px;
+	background:#ebe7df;
+	text-align:center;
+	position:relative;
+	font-size:0;
+}
+.catalog{
+	width:100%;
+	height:356px;
+	background:transparent;
+	display:block;
+	position:relative;
+}
+.catalog_name{
+	width:100%;
+	height:87px;
+	display:block;
+	position:relative;
+	background:transparent;
+	
+}
+.c_n_left{
+	font-size:25pt;
+	color:#6b6a66;
+	float:left;
+	line-height:87px;
+	padding-left:0;
+}
+.show_all{
+	margin-top:28px;
+	padding-top:3px;
+	font-size:14pt;
+	color:#bfb9ab; 
+	width:98px;
+	height:25px;
+	border:1px solid #bcb5a7;
+	float:right;
+}
+.show_all:hover{
+	border-color:#57c5a0;
+	cursor:pointer;
+	color:#57c5a0;
+}
+.content{
+	width:100%;
+	height:269px;
+	display:block;
+	position:relative;
+	text-align:center;
+}
+.shoes{
+	display:inline-block;
+	width:32%;
+	height:269px;
+	position:relative;
+	overflow:hidden;
+	background:white;
+	margin-right:1%;
+}
+.shoes_photo{
+	width:100%;
+	height:220px;
+	display:block;
+}
+.menu_name_shoes{
+	width:100%;
+	height:48px;
+	border-top:1px solid #cccccc;
+	position:relative;
+	display:block;
+	
+}
+.name_shoes{
+	width:100%;
+	height:40px;
+	padding-top:8px;
+	font-size:18pt;
+	color:#242424;
+	left:100px;
+	text-align:left;
+	display:inline-block;
+	position:absolute;
+}
+.menu_shoes{
+	width:100%;
+	height:40px;
+	display:none;
+	position:absolute;
+	padding-top:8px;
+	
+	left:100px;
+	text-align:left;
+
+
+}
+.menu_shoes_button{
+	width:34px;
+	height:34px;
+	
+	display:inline-block;
+	margin:0 2px;	
+	transition:all .1s linear;
+	-webkit-transition:all .1s linear;
+	-moz-transition:all .1s linear;
+	-o-transition:all .1s linear;
+
+
+}
+.shoes:hover .menu_name_shoes .name_shoes{
+	display:none;
+}
+.shoes:hover .menu_name_shoes .menu_shoes{
+	display:block;
+}
+.shoes1 .shoes_photo{
+	background:url("img/shoes1.png") center no-repeat;
+}
+.shoes2 .shoes_photo{
+	background:url("img/shoes2.png") center no-repeat;
+}
+.shoes3 .shoes_photo{
+	background:url("img/shoes3.png") center no-repeat;
+}
+.shoes4 .shoes_photo{
+	background:url("img/shoes4.png") center no-repeat;
+}
+.shoes5 .shoes_photo{
+	background:url("img/shoes5.png") center no-repeat;
+}
+.shoes6 .shoes_photo{
+	background:url("img/shoes6.png") center no-repeat;
+}
+.shoes::before{
+	width:68px;
+	height:68px;
+	display:none;
+	background:#242424;
+	position:absolute;
+	right:5%;
+	top:0%;
+	content:'';
+	color:white;
+	line-height:68px;
+	font-size:10pt;
+	font-weight:bold;
+}
+.shoes::after{
+	width:68px;
+	height:68px;
+	background:#57c5a0;
+	display:none;
+	position:absolute;
+	bottom:0;
+	left:5%;
+	content:'';
+	color:white;
+	font-size:13pt;
+	line-height:68px;
+	font-weight:bold;
+}
+.shoes::after{
+	display:block;
+	content:"$145,99";
+
+}
+.shoes2::before{
+	content:"ON SALE!";
+	display:block;
+}
+.shoes6::before{
+	display:block;
+	content:'OUT OF STOCK';
+	line-height:100%;
+	background:#f27e4b;
+	border-top:23px solid transparent;
+	box-sizing:border-box;
+}
+.m_s_button1{
+	background:url("img/m_s_eye.png") center no-repeat !important;		
+}
+.m_s_button2{
+	background:url("img/m_s_star.png") center no-repeat !important;
+}
+.m_s_button3{
+	background:url("img/m_s_share.png") center no-repeat !important;
+}
+.m_s_button4{
+	background:url("img/m_s_buy.png") center no-repeat !important;
+}
+.menu_shoes_button:hover{
+	border-left:4px solid #57c5a0 ;
+	border-right:4px solid #57c5a0 ;
+	cursor:pointer;
+}

@@ -1,0 +1,69 @@
+@import "top.css";
+@import "legs.css";
+@import "after_legs.css";
+@import "specials.css";
+@import "catalogs.css";
+@import "pre_footer.css";
+@import "footer.css";
+@import "end.css";
+@import "addon.css";
+
+*{
+	padding:0;
+	margin:0;
+	font-family:"Times New Roman";
+}
+header{
+	display:block;
+	width:100%;
+	height:45px;
+	min-width:865px;
+	background:#242424;
+	text-align:center;
+	position:relative;
+	
+}
+.div{
+	display:inline-block;
+	height:100%;
+	background:transparent;
+	width:100%;
+	max-width:940px;
+	min-width:865px;
+	font-size:0;
+	position:relative;
+}
+.fooseshoes{
+	color:#57c5a0;
+	float:left;
+	line-height:45px;
+	font-size:26pt;
+	font-family:monospace;
+}
+.search_login{
+	font-size:20pt;
+	float:right;
+	height:100%;
+	line-height:37px;
+	font-family:Tahoma;
+
+}
+.search{
+	display:inline-block;
+	height:100%;
+}
+.login{
+	display:inline-block;
+	border-left:1px solid #383838;
+	border-right:1px solid #383838;
+	height:100%;
+	padding:0 10px;
+	color:#383838;
+	font-size:11pt;
+}
+.login:hover{
+	background:#010101;
+	cursor:pointer;
+
+}
+

@@ -1,0 +1,31 @@
+.end{
+	display:block;
+	width:100%;
+	height:89px;
+	min-width:865px;
+	background:#2e2e2e;
+	text-align:center;
+	position:relative;
+	font-size:0;
+}
+.end_left{
+	float:left;
+	color:#acacac;
+	font-size:10pt;
+	text-align:left;
+	margin-top:30px;
+}
+.end_right{
+	float:right;
+	color:#acacac;
+	font-size:10pt;
+	text-align:left;
+	margin-top:30px;
+}
+.end a{
+	color:#acacac;
+	text-decoration:none;
+}
+.end a:hover{
+	text-decoration:underline;
+}
