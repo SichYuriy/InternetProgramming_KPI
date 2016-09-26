@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>
+      Test
+    </title>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head> 
+  <body>
+    <div class="container">
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <h4><span>UserName:  </span><span id="userNameSpan"></span></h4>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12 testName">
+          <h3><span>TestName: </span><span id="testNameSpan"></span></h3>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <span>Question: </span><span id="tempQuestionSpan">0</span>/<span id="testSizeSpan">0</span>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-9 question">
+          <div>
+            <span id=questionContentSpan></span>
+          </div>
+          <div class="container">
+            <form id="answersForm">
+              <div class="radio">
+                <label><input type="radio" name="optradio" ><span id="answer1Span"></span></label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio"><span id="answer2Span"></span></label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio"><span id="answer3Span"></span></label>
+              </div>
+              <div class="radio">
+                <label><input type="radio" name="optradio"><span id="answer4Span"></span></label>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="col-md-3" id="navigationDiv">
+
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary" id="nextButton">Next</button>
+          <button type="button" class="btn btn-success" id="finishButton">Finish</button>
+        </div>
+      </div>
+      <hr>  
+      <div class="row">
+        <div class="col-md-12">
+          <h4><span>Score:</span> <span id="scoreSpan">0</span><span>%</span></h4>
+        </div>
+      </div>
+    </div>
+
+    <script src="client.js"></script>
+  </body>
+  
+</html>

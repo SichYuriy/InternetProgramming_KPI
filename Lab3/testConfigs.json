@@ -1,0 +1,5 @@
+{
+  "fileName" : "test.json",
+  "testSize" : 5,
+  "timeToReconnect" : 60000
+}
