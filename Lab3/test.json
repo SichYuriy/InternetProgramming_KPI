@@ -1,45 +1,279 @@
 {
   "test" : {
-    "name" : "Test1",
+    "name" : "JavaTest",
     "questions" : [
       {
-        "content" :  "question1",
+        "content" :  "Which one of these lists contains Java programming language keywords?",
         "answers" : [
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1", "correct" : true}
+          {"content" : "class, if, void, long, Int, continue"},
+          {"content" : "goto, instanceof, native, finally, default, throws", "correct" : true},
+          {"content" : "try, virtual, throw, final, volatile, transient"},
+          {"content" : "strictfp, constant, super, implements, do"}
         ]
       },
       {
-        "content" :  "question2",
+        "content" :  "Which will legally declare, construct, and initialize an array?",
         "answers" : [
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1", "correct" : true}
+          {"content" : "int [] myList = {\"1\", \"2\", \"3\"};"},
+          {"content" : "int [] myList = (5, 8, 2);"},
+          {"content" : "int myList [] [] = {4,9,7,0};"},
+          {"content" : "int myList [] = {4, 3, 7};", "correct" : true}
         ]
       },
       {
-        "content" :  "question3",
+        "content" :  "Which is a reserved word in the Java programming language?",
         "answers" : [
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1", "correct" : true}
+          {"content" : "method"},
+          {"content" : "native", "correct" : true},
+          {"content" : "subclasses"},
+          {"content" : "reference"}
         ]
       },
       {
-        "content" :  "question4",
+        "content" :  "Which is a valid keyword in java?",
         "answers" : [
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1"},
-          {"content" : "v1", "correct" : true}
+          {"content" : "interface", "correct" : true},
+          {"content" : "string"},
+          {"content" : "Float"},
+          {"content" : "unsigned"}
         ]
       },
       {
-        "content" :  "question5",
+        "content" :  "Which one of the following will declare an array and initialize it with five numbers?",
+        "answers" : [
+          {"content" : "Array a = new Array(5);"},
+          {"content" : "int [] a = {23,22,21,20,19};", "correct" : true},
+          {"content" : "int a [] = new int[5];"},
+          {"content" : "int [5] array;"}
+        ]
+      },
+      {
+        "content" :  "Which is the valid declarations within an interface definition?",
+        "answers" : [
+          {"content" : "public double methoda();", "correct" : true},
+          {"content" : "public final double methoda();"},
+          {"content" : "static void methoda(double d1);"},
+          {"content" : "protected void methoda(double d1);"}
+        ]
+      },
+      {
+        "content" :  "Which one is a valid declaration of a boolean?",
+        "answers" : [
+          {"content" : "boolean b1 = 0;"},
+          {"content" : "boolean b2 = 'false';"},
+          {"content" : "boolean b3 = false;", "correct" : true},
+          {"content" : "boolean b4 = Boolean.false();"}
+        ]
+      },
+      {
+        "content" :  "Which is a valid declarations of a String?",
+        "answers" : [
+          {"content" : "String s1 = null;", "correct" : true},
+          {"content" : "String s2 = 'null';"},
+          {"content" : "String s3 = (String) 'abc';"},
+          {"content" : "String s4 = (String) '\ufeed';"}
+        ]
+      },
+      {
+        "content" :  "What is the numerical range of a char?",
+        "answers" : [
+          {"content" : "-128 to 127"},
+          {"content" : "-(215) to (215) - 1"},
+          {"content" : "0 to 32767"},
+          {"content" : "0 to 65535", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "Which is true about an anonymous inner class?",
+        "answers" : [
+          {"content" : "It can extend exactly one class and implement exactly one interface."},
+          {"content" : "It can extend exactly one class and can implement multiple interfaces."},
+          {"content" : "It can extend exactly one class or implement exactly one interface.", "correct" : true},
+          {"content" : "It can implement multiple interfaces regardless of whether it also extends a class."}
+        ]
+      },
+      {
+        "content" :  "Which is true about a method-local inner class?",
+        "answers" : [
+          {"content" : "It must be marked final."},
+          {"content" : "It can be marked abstract.", "correct" : true},
+          {"content" : "It can be marked public."},
+          {"content" : "It can be marked static."}
+        ]
+      },
+      {
+        "content" :  "Which statement is true about a static nested class?",
+        "answers" : [
+          {"content" : "You must have a reference to an instance of the enclosing class in order to instantiate it."},
+          {"content" : "It does not have access to nonstatic members of the enclosing class.", "correct" : true},
+          {"content" : "It's variables and methods must be static."},
+          {"content" : "It must extend the enclosing class."}
+        ]
+      },
+      {
+        "content" :  "Which constructs an anonymous inner class instance?",
+        "answers" : [
+          {"content" : "Runnable r = new Runnable() { };"},
+          {"content" : "Runnable r = new Runnable(public void run() { });"},
+          {"content" : "Runnable r = new Runnable { public void run(){}};"},
+          {"content" : "System.out.println(new Runnable() {public void run() { }});", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "What allows the programmer to destroy an object x?",
+        "answers" : [
+          {"content" : "x.delete()"},
+          {"content" : "x.finalize()"},
+          {"content" : "Runtime.getRuntime().gc()"},
+          {"content" : "Only the garbage collection system can destroy an object.", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "Which of the following would compile without error?",
+        "answers" : [
+          {"content" : "int a = Math.abs(-5);", "correct" : true},
+          {"content" : "int b = Math.abs(5.0);"},
+          {"content" : "int c = Math.abs(5.5F);"},
+          {"content" : "int d = Math.abs(5L);"}
+        ]
+      },
+      {
+        "content" :  "You want subclasses in any package to have access to members of a superclass. Which is the most restrictive access that accomplishes this objective?",
+        "answers" : [
+          {"content" : "public"},
+          {"content" : "private"},
+          {"content" : "protected", "correct" : true},
+          {"content" : "transient"}
+        ]
+      },
+      {
+        "content" :  "What is the most restrictive access modifier that will allow members of one class to have access to members of another class in the same package?",
+        "answers" : [
+          {"content" : "public"},
+          {"content" : "abstract"},
+          {"content" : "protected"},
+          {"content" : "default access", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "Which cause a compiler error?",
+        "answers" : [
+          {"content" : "int[ ] scores = {3, 5, 7};"},
+          {"content" : "int [ ][ ] scores = {2,7,6}, {9,3,45};", "correct" : true},
+          {"content" : "String cats[ ] = {\"Fluffy\", \"Spot\", \"Zeus\"};"},
+          {"content" : "boolean results[ ] = new boolean [] {true, false, true};"}
+        ]
+      },
+      {
+        "content" :  "Which one creates an instance of an array?",
+        "answers" : [
+          {"content" : "int[ ] ia = new int[15];", "correct" : true},
+          {"content" : "float fa = new float[20];"},
+          {"content" : "char[ ] ca = \"Some String\";"},
+          {"content" : "int ia[ ] [ ] = { 4, 5, 6 }, { 1,2,3 };"}
+        ]
+      },
+      {
+        "content" :  "Which of the following class level (nonlocal) variable declarations will not compile?",
+        "answers" : [
+          {"content" : "protected int a;"},
+          {"content" : "transient int b = 3;"},
+          {"content" : "private synchronized int e;", "correct" : true},
+          {"content" : "volatile int d;"}
+        ]
+      },
+      {
+        "content" :  "Given a method in a protected class, what access modifier do you use to restrict access to that method to only the other members of the same class?",
+        "answers" : [
+          {"content" : "final"},
+          {"content" : "static"},
+          {"content" : "private", "correct" : true},
+          {"content" : "protected"}
+        ]
+      },
+      {
+        "content" :  "Which is a valid declaration within an interface?",
+        "answers" : [
+          {"content" : "public static short stop = 23;", "correct" : true},
+          {"content" : "protected short stop = 23;"},
+          {"content" : "transient short stop = 23;"},
+          {"content" : "final void madness(short stop);"}
+        ]
+      },
+      {
+        "content" :  "Which class does not override the equals() and hashCode() methods, inheriting them directly from class Object?",
+        "answers" : [
+          {"content" : "java.lang.String"},
+          {"content" : "java.lang.Double"},
+          {"content" : "java.lang.StringBuffer", "correct" : true},
+          {"content" : "java.lang.Character"}
+        ]
+      },
+      {
+        "content" :  "Which collection class allows you to grow or shrink its size and provides indexed access to its elements, but whose methods are not synchronized?",
+        "answers" : [
+          {"content" : "java.util.HashSet"},
+          {"content" : "java.util.LinkedHashSet"},
+          {"content" : "java.util.List"},
+          {"content" : "java.util.ArrayList", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "You need to store elements in a collection that guarantees that no duplicates are stored and all elements can be accessed in natural order. Which interface provides that capability?",
+        "answers" : [
+          {"content" : "java.util.Map"},
+          {"content" : "java.util.Set", "correct" : true},
+          {"content" : "java.util.List"},
+          {"content" : "java.util.Collection"}
+        ]
+      },
+      {
+        "content" :  "Which interface does java.util.Hashtable implement?",
+        "answers" : [
+          {"content" : "Java.util.Map", "correct" : true},
+          {"content" : "Java.util.List"},
+          {"content" : "Java.util.HashTable"},
+          {"content" : "Java.util.Collection"}
+        ]
+      },
+      {
+        "content" :  "Which interface provides the capability to store objects using a key-value pair?",
+        "answers" : [
+          {"content" : "Java.util.Map", "correct" : true},
+          {"content" : "Java.util.Set"},
+          {"content" : "Java.util.List"},
+          {"content" : "Java.util.Collection"}
+        ]
+      },
+      {
+        "content" :  "Which collection class allows you to associate its elements with key values, and allows you to retrieve objects in FIFO (first-in, first-out) sequence?",
+        "answers" : [
+          {"content" : "ava.util.ArrayList"},
+          {"content" : "java.util.LinkedHashMap", "correct" : true},
+          {"content" : "java.util.HashMap"},
+          {"content" : "java.util.TreeMap"}
+        ]
+      },
+      {
+        "content" :  "Which collection class allows you to access its elements by associating a key with an element's value, and provides synchronization?",
+        "answers" : [
+          {"content" : "java.util.SortedMap"},
+          {"content" : "java.util.TreeMap"},
+          {"content" : "java.util.TreeSet"},
+          {"content" : "java.util.Hashtable", "correct" : true}
+        ]
+      },
+      {
+        "content" :  "Which is valid declaration of a float?",
+        "answers" : [
+          {"content" : "float f = 1F;", "correct" : true},
+          {"content" : "float f = 1.0;"},
+          {"content" : "float f = \"1\";"},
+          {"content" : "float f = 1.0d;"}
+        ]
+      },
+      {
+        "content" :  "What is the numerical range of char?",
         "answers" : [
           {"content" : "v1"},
           {"content" : "v1"},
