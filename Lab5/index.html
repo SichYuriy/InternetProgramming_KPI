@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>
+      Search systems presentation
+    </title>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./script.js"></script>
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+          <h2>Search systems comparison:</h2>
+        </div>
+      </div>
+      <div class="row">
+        <div class = "col-md-6">
+          <span id="searchName1Span">Google</span>
+        </div>
+        <div class="co-md-6">
+          <span id="searchName2Span">Ynadex</span>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+              <iframe 
+              src="https://www.google.com.ua" 
+              height="500" 
+              width="100%"
+              id="frame1Id">
+              </iframe>
+        </div>
+        <div class="col-md-6">
+              <iframe 
+              src="https://yandex.ua" 
+              height="500" 
+              width="100%"
+              id="frame2Id">
+              </iframe>
+        </div>
+      </div>
+      <hr>
+      <div class="row">
+        <div class = "col-md-12">
+          <form>
+            <select id="search1SelectId">
+              <option value="google">Google</option>
+              <option value="yandex">Yandex</option>
+              <option value="mail.ru">Mail.ru</option>
+              <option value="yahoo">Yahoo</option>
+              <option value="bing">Bing</option>
+            </select>
+
+            <input type="text" id="searchStrId"></input>
+            <button type="button" class="btn btn-primary" id="searchButtonId">Search</button>
+
+            <select id="search2SelectId">
+              <option value="yandex">Yandex</option>
+              <option value="google">Google</option>
+              <option value="mail.ru">Mail.ru</option>
+              <option value="yahoo">Yahoo</option>
+              <option value="bing">Bing</option>
+            </select>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      
+   
+   
+      var searchBtn = document.getElementById("searchButtonId").onclick=function(){
+        var searchSys1 = document.getElementById("search1SelectId").value;
+        var searchSys2 = document.getElementById("search2SelectId").value;
+        var searchStr = document.getElementById("searchStrId").value;
+        var name1Span = document.getElementById("searchName1Span");
+        var name2Span = document.getElementById("searchName2Span");
+
+        search("frame1Id", searchSys1, searchStr);
+        search("frame2Id", searchSys2, searchStr);
+        name1Span.innerHTML=searchSys1 + ":";
+        name2Span.innerHTML=searchSys2 + ":";
+      }
+    </script>
+    
+  </body>
+</html>
