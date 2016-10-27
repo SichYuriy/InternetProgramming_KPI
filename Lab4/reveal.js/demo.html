@@ -1,0 +1,436 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+	
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+		
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			
+			<div class="slides">
+				<section>
+					<h1>Exploring the Java Persistence API
+          </h1>
+					
+				</section>
+
+				<section>
+					<h2>Why should	I care?</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>Why not just use JDBC?
+                <ul>
+                  <li>Standard POJOs - no framework interfaces or  classes to implement or extend</li>
+                  <li>Facilitate test-driven development</li>
+                </ul>
+              </li>
+              <li>Annotation driven, no XML mappings required.</li>
+            </ul>
+					</p>
+				</section>
+
+        <section>
+					<h2>Goals</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>Provide complete ORM solution for Java SE and  Java EE environments</li>
+              <li>
+                Easy to use
+                <ul>
+                  <li>Standardized API</li>
+                  <li>Better for developers - one API to learn and use</li>
+                  <li>Can choose between competing implementations</li>
+                  <li>Vendor independence</li>
+                </ul>
+              </li>
+            </ul>
+					</p>
+				</section>
+
+        <section>
+					<h2>JPA</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>Annotating Persistent Entities</li>
+              <li>Understanding the EntityManager</li>
+              <li>JPQL and Criteria API</li>
+            </ul>
+					</p>
+				</section>
+
+        <section>
+					<h1>Persistent  POJOs API</h1>
+					
+				</section>
+
+        <section>
+					<h2>JPA</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>Annotated with @Entity  </li>
+              <li>Contains a persistent @Id field</li>
+              <li>No argument constructor (public or protected)  </li>
+              <li>Not marked final</li>
+              <li>Top level class</li>
+              <li>Must implement Serializable to be remotely passed  by value as a detached instance</li>
+            </ul>
+					</p>
+				</section>
+
+        <section>
+					<h2>Persistent Entity Example</h2>
+          <hr>
+          <div>
+					<pre><code class="hljs" data-trim contenteditable>
+            @Entity
+            public class AppUser {
+              @id
+              private Long id;
+              private String username;
+              private String password;
+            }
+
+
+					</code></pre>
+
+          
+          </div>
+          <div>
+            <table style="border:1px solid black;">
+              <tr>
+                <td colspan="3">
+                  AppUser
+                </td>
+              </tr>
+              <tr>
+                <td>id</td>
+                <td>username</td>
+                <td>password</td>
+              </tr>
+            </table>
+            
+            
+          </div>
+				</section>
+
+        <section style="font-size:25px;">
+					<h2>@Table @Column</h2>
+          <hr>
+          <ul>
+            <li>Used to define name mappings between Java object and  database table/columns</li>
+            <li>@Table applied at the persistent class levels</li>
+            <li>@Column applied at the persistent field/property level</li>
+            
+          </ul>
+          <div style="float:left;width:50%">
+					<pre><code class="hljs" data-trim contenteditable>
+            @Entity
+            @Table(name="TBL_ARTIST")
+            public class Artist {
+              @Id
+              @Column(name="ARTIST_ID")
+              private Long id;
+
+              @Column(name="ARTIST_NAME")
+              private String name;
+            }
+
+
+					</code></pre>
+          </div>
+          <div>
+            <br>
+            <table style="border:1px solid black;">
+              <tr>
+                <td colspan="2">
+                  TBL_ARTIST
+                </td>
+              </tr>
+              <tr>
+                <td>ARTIST_ID</td>
+                <td>NUMERIC</td>
+              </tr>
+              <tr>
+                <td>ARTIST_NAME</td>
+                <td>VARCHAR(50)</td>
+              </tr>
+            </table>
+          </div>
+				</section>
+
+        <section>
+					<h1>Annotating  Relationships</h1>
+					
+				</section>
+
+        <section>
+					<h2>Relationships</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>JPA supports all standard relationships
+                <ul>
+                  <li>One-To-One</li>
+                  <li>One-To-Many</li>
+                  <li>Many-To-One</li>
+                  <li>Many-To-Many</li>
+                </ul>
+              </li>
+              <li>Supports unidirectional and bidirectional relationships</li>
+              <li>Supports both composite and aggregate relationships</li>
+            </ul>
+					</p>
+				</section>
+
+        <section>
+					<h2>@OneToOne</h2>
+          
+          <hr>
+          <ul>
+            <li style="font-size:20px;">
+              Can be based on shared primary key or foreign key relationship  using either @PrimaryKeyJoinColumn or @JoinColumn
+            </li>
+          </ul>
+          <div style="font-size:25px">
+            <table style="border:1px solid black;display:inline-block;">
+              <tr>
+                <td colspan="2">
+                  Artist
+                </td>
+              </tr>
+              <tr>
+                <td>ARTIST_ID</td>
+                <td>NUMERIC</td> 
+              </tr>
+              <tr>
+                <td>MANAGER_ID</td>
+                <td>NUMERIC</td> 
+              </tr>
+            </table>
+            <table style="border:1px solid black;display:inline-block;">
+              <tr>
+                <td colspan="2">
+                  MANAGER
+                </td>
+              </tr>
+              <tr>
+                <td>MANAGER_ID</td>
+                <td>numeric</td>
+              </tr>
+            </table>
+            
+          </div>
+          
+          
+          <div style="width:45%;display:inline-block;">
+					<pre><code class="hljs" data-trim contenteditable>@Entity
+public class Artist {
+  @Id
+  private Long id;
+
+  @OneToOne
+  @JoinColumn(name="MANAGER_ID")
+  private Manager manager;
+}
+					</code></pre>         
+          </div>
+          <div style="width:45%;display:inline-block;">
+					<pre><code class="hljs" data-trim contenteditable>
+@Entity
+public class Manger {
+  @id
+  private Long id;
+
+  @OneToOne(mappedBy="manager")
+  private Artist artist;
+}
+					</code></pre>         
+          </div>
+          
+          
+				</section>
+        <section>
+					<h2>@OneToMany</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>@OneToMany defines the one side of a one-to-  many relationship</li>
+              <li>The mappedBy element of the annotation defines  the object reference used by the child entity</li>
+              <li>@OrderBy defines an collection ordering  required when relationship is retrieved</li>
+              <li>The child (many) side will be represented using  an implementation of the java.util.Collection  interface</li>
+            </ul>
+					</p>
+				</section>
+        <section>
+					<h2>@ManyToOne</h2>
+          <hr>
+					<p>
+						<ul>
+              <li>@ManyToOne defines the many side of a one-to-  many relationship</li>
+              <li>@JoinColumn defines foreign key reference</li>
+              <li>The many side is considered to be the owning  side of the relationship</li>
+            </ul>
+					</p>
+				</section>
+        <section>
+					<h2>@One-To-Many Example</h2>
+          
+          <hr>
+          
+          <div style="font-size:25px">
+            <table style="border:1px solid black;display:inline-block;">
+              <tr>
+                <td colspan="2">
+                  ARTIST
+                </td>
+              </tr>
+              <tr>
+                <td>ARTIST_ID</td>
+                <td>NUMERIC</td> 
+              </tr>
+            </table>
+            <table style="border:1px solid black;display:inline-block;">
+              <tr>
+                <td colspan="2">
+                  ALBUM
+                </td>
+              </tr>
+              <tr>
+                <td>ALBUM_ID</td>
+                <td>NUMERIC</td>
+              </tr>
+              <tr>
+                <td>ARTIST_ID(FK)</td>
+                <td>NUMERIC</td>
+              </tr>
+            </table>
+            
+          </div>
+          
+          
+          <div style="width:45%;display:inline-block;">
+					<pre><code class="hljs" data-trim contenteditable>@Entity
+public class Artist {
+  @Id
+  @Column(name="ARTIST_ID")
+  private Long id;
+
+  @OneToMany(mappedBy="artist")
+  @JoinColumn(name="MANAGER_ID")
+  private Set(Album) albums=
+          new HashSet();
+}
+					</code></pre>         
+          </div>
+          <div style="width:45%;display:inline-block;">
+					<pre><code class="hljs" data-trim contenteditable>
+@Entity
+public class Album {
+  @id
+  @Column(name="ALBUM_ID")
+  private Long id;
+
+  @ManyToOne(mappedBy="manager")
+  @JoinColumn(name="ARTIST_ID")
+  private Artist artist;
+}
+					</code></pre>         
+          </div>
+          
+          
+				</section>
+
+        <section>
+					<h2>Example persistence.xml</h2>
+          <hr>
+          <div>
+					<pre><code class="hljs" data-trim contenteditable>
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.oracle.com/webfolder/technetwork/jsc/xml/ns/persistence/index.html
+    http://bit.ly/cDXfCA">
+  <persistence-unit name="league" transaction-type="RESOURCE_LOCAL">
+
+    <provider>oracle.toplink.essentials.ejb.cmp3.EntityManagerFactoryProvider</provider>
+    <class>com.sun.demo.jpa.Player</class>
+    <class>com.sun.demo.jpa.Team</class>
+    <properties>
+
+      <property name="toplink.jdbc.user" value="league"/>
+      <property name="toplink.jdbc.password" value="league"/>
+      <property name="toplink.jdbc.url" value="jdbc:derby://localhost:1527/league"/>
+
+      <property name="toplink.jdbc.driver" value="org.apache.derby.jdbc.ClientDriver"/>
+      <property name="toplink.ddl-generation" value="create-tables"/>
+    </properties>
+
+  </persistence-unit>
+</persistence>
+					</code></pre>
+          </div>
+				</section>
+        <section>
+					<h1>The End.
+          </h1>
+					
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// More info https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
