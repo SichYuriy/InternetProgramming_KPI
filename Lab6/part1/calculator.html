@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>
+  </title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="./calculator.js"></script>
+</head> 
+<body>
+  <div class="row">
+    <div class="col-md-3 col-md-offset-5">
+      <h2>Calculator</h2>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-2 col-md-offset-5">
+      <table class="table table-bordered" style="font-size:20px">
+        <tbody>
+          <tr>
+            <td colspan="4" style="text-align:right; ">
+              <span id="answerTextSpanId">0</span>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button type="button" class="btn btn-default" style="display:inline-block; width:100%;" id="cBtnId">C</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="devBtnId">/</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-default" id="num7BtnId">7</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num8BtnId">8</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num9BtnId">9</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="multBtnId">*</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-default" id="num4BtnId">4</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num5BtnId">5</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num6BtnId">6</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="subBtnId">-</button>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <button type="button" class="btn btn-default" id="num1BtnId">1</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num2BtnId">2</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="num3BtnId">3</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="plusBtnId">+</button>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="3">
+              <button type="button" class="btn btn-default" style="display:inline-block; width:100%" id="num0BtnId">0</button>
+            </td>
+            <td>
+              <button type="button" class="btn btn-default" id="answerBtnId">=</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <script>
+    
+    function addDigitListener(btn, digit) {
+      btn.onclick = function() {
+        addDigit(digit);
+        var answerTextSpan = document.getElementById("answerTextSpanId");
+        answerTextSpan.textContent = getTempValue();
+      }
+      
+    }
+    for (var i = 0; i < 10; i++) {
+      var numBtn = document.getElementById("num" + i + "BtnId");
+      
+      addDigitListener(numBtn, i);
+    }
+
+    document.getElementById("cBtnId").onclick = function() {
+      reset();
+      document.getElementById("answerTextSpanId").textContent = "0";
+    }
+
+    operations = ["plus", "sub", "mult", "dev"];
+
+    operations.forEach(function(val) {
+      var btn = document.getElementById(val + "BtnId");
+      btn.onclick = function() {
+        console.log(val);
+        doOperation(val);
+        document.getElementById("answerTextSpanId").textContent = getAnswer();
+      };
+    });
+
+    document.getElementById("answerBtnId").onclick = function() {
+      countAnswer();
+      document.getElementById("answerTextSpanId").textContent = getAnswer();
+    }
+    
+
+
+  </script> 
+
+</body>
+  
+</html>
