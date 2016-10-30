@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="./requestStatistics.js"></script>
     <script src="./script.js"></script>
+    
   </head>
   <body>
 
@@ -49,36 +51,92 @@
       <hr>
       <div class="row">
         <div class = "col-md-12">
-          <form>
-            <select id="search1SelectId">
-              <option value="google">Google</option>
-              <option value="yandex">Yandex</option>
-              <option value="mail.ru">Mail.ru</option>
-              <option value="yahoo">Yahoo</option>
-              <option value="bing">Bing</option>
-            </select>
+          
+          <select id="search1SelectId">
+            <option value="google">Google</option>
+            <option value="yandex">Yandex</option>
+            <option value="mail.ru">Mail.ru</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="bing">Bing</option>
+          </select>
 
-            <input type="text" id="searchStrId"></input>
-            <button type="button" class="btn btn-primary" id="searchButtonId">Search</button>
+          <input type="text" id="searchStrId"></input>
+          <button type="button" class="btn btn-primary" id="searchButtonId">Search</button>
 
-            <select id="search2SelectId">
-              <option value="yandex">Yandex</option>
-              <option value="google">Google</option>
-              <option value="mail.ru">Mail.ru</option>
-              <option value="yahoo">Yahoo</option>
-              <option value="bing">Bing</option>
-            </select>
-
-          </form>
+          <select id="search2SelectId">
+            <option value="yandex">Yandex</option>
+            <option value="google">Google</option>
+            <option value="mail.ru">Mail.ru</option>
+          <option value="yahoo">Yahoo</option>
+            <option value="bing">Bing</option>
+          </select>
+          
+          
         </div>
       </div>
+      <hr>
+      <div class="row">
+        <div class="col-md-12">
+          <select id="searchSysStatSelectId">
+            <option value="yandex">Yandex</option>
+            <option value="mail.ru">Mail.ru</option>
+            <option value="yahoo">Yahoo</option>
+            <option value="bing">Bing</option>
+          </select>
+          <button type="button" class="btn btn-primary" id="searchSysStatButtonId">Show results</button>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Propery name</th>
+                <th>Value</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Recall</td>
+                <td><span id="recallSpanId"></span></td>
+              </tr>
+              <tr>
+                <td>Percision</td>
+                <td><span id="precisionSpanId"></span></td>
+              </tr>
+              <tr>
+                <td>Accuracy</td>
+                <td><span id="accuracySpnaId"></span></td>
+              </tr>
+              <tr>
+                <td>Error</td>
+                <td><span id="errorSpanId"></span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <hr>
     </div>
 
     <script>
       
-   
-   
-      var searchBtn = document.getElementById("searchButtonId").onclick=function(){
+
+
+      function refreshStat(searchSys) {
+        document.getElementById("recallSpanId").textContent = getRecall(searchSys);
+        document.getElementById("precisionSpanId").textContent = getPrecision(searchSys);
+        document.getElementById("accuracySpnaId").textContent = getAccuracy(searchSys);
+        document.getElementById("errorSpanId").textContent = getError(searchSys);
+      };
+      
+      document.getElementById("searchSysStatButtonId").onclick = function() {
+        var searchSys = document.getElementById("searchSysStatSelectId").value;
+        refreshStat(searchSys);
+      };
+      
+      document.getElementById("searchButtonId").onclick = function() {
         var searchSys1 = document.getElementById("search1SelectId").value;
         var searchSys2 = document.getElementById("search2SelectId").value;
         var searchStr = document.getElementById("searchStrId").value;
@@ -89,7 +147,13 @@
         search("frame2Id", searchSys2, searchStr);
         name1Span.innerHTML=searchSys1 + ":";
         name2Span.innerHTML=searchSys2 + ":";
-      }
+
+        console.log(getRecall("yandex"));
+      };
+
+
+      refreshStat("yandex");
+
     </script>
     
   </body>
