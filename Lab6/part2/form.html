@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>
+  </title>
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  
+</head> 
+<body>
+
+  <div class="row">
+    <div class="col-md-3 col-md-offset-5">
+      <h2>Login form</h2>
+    </div>
+    <div class="row">
+      <div class="col-md-4 col-md-offset-4">
+        <form onSubmit="return onSubmit();">
+          <div class="form-group">
+            <label for="email">First name:</label>
+            <input type="text" class="form-control" id="firstNameId" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Last name:</label>
+            <input type="text" class="form-control" id="lastNameId" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email address:</label>
+            <input type="email" class="form-control" id="emailId" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Mobile phone:</label>
+            <input type="text" class="form-control" id="phoneId" required> 
+          </div>
+          <div class="alert alert-danger" hidden id="invalidPhoneId">
+            <strong>Error!</strong> This field must contain only digits.
+          </div>
+          <input type="submit" class="btn btn-default"></button>
+        </form>
+
+        
+      </div>
+    </div>
+  </div>
+  <script src="checks.js"></script>
+</body>
+  
+</html>
