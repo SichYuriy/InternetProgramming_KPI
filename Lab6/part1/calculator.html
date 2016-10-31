@@ -112,7 +112,6 @@
     operations.forEach(function(val) {
       var btn = document.getElementById(val + "BtnId");
       btn.onclick = function() {
-        console.log(val);
         doOperation(val);
         document.getElementById("answerTextSpanId").textContent = getAnswer();
       };

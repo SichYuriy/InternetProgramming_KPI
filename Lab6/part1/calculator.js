@@ -32,8 +32,6 @@ function reset() {
 
 function countAnswer(val) {
   if (!firstOperation) {
-    console.log(previousOperation);
-    console.log(operations);
     answer = operationsFuncs[previousOperation](answer, tempVal);
     firstOperation = true;
     tempVal = answer;
